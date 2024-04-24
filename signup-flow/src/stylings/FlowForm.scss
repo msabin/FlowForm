@@ -1,0 +1,22 @@
+
+#flow-form{
+  display: flex;
+  flex-direction: row;
+}
+
+#buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.flex {
+  display: flex;
+}
+
+.left {
+  justify-content: left;
+}
+
+.right {
+  justify-content: right;
+}
