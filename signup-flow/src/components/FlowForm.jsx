@@ -5,6 +5,7 @@ import { SelectPlan } from "./pages/SelectPlan"
 import { useState } from "react"
 import { ThankYou } from "./pages/ThankYou";
 import '../styles/components/FlowForm.scss';
+import { ProgressPanel } from "./ProgressPanel";
 
 
 
@@ -15,22 +16,37 @@ export function FlowForm() {
   const [userData, setUserData] = useState({});
 
   
+  const handleGoBack = () => {
+    setCurrPage(currPage-1);
+  }
   const handleUpdateUserData = (newUserData) => {
     setUserData({ ...userData, ...newUserData });
     setCurrPage(currPage+1);
   }
 
   const pages = [
-    <PersonalInfo onUpdateUserData={handleUpdateUserData} />,
-    <SelectPlan onUpdateUserData={handleUpdateUserData}/>,
-    <AddOns onUpdateUserData={handleUpdateUserData}/>,
-    <Finishing onUpdateUserData={handleUpdateUserData}/>,
+    <PersonalInfo 
+      onGoBack={handleGoBack}
+      onUpdateUserData={handleUpdateUserData} 
+    />,
+    <SelectPlan
+      onGoBack={handleGoBack}
+      onUpdateUserData={handleUpdateUserData} 
+    />,
+    <AddOns
+      onGoBack={handleGoBack}
+      onUpdateUserData={handleUpdateUserData} 
+    />,
+    <Finishing
+      onGoBack={handleGoBack}
+      onUpdateUserData={handleUpdateUserData} 
+    />,
     <ThankYou/>
   ]
 
   return (
     <div id="flow-form">
-      <div>Progress Panel</div>
+      <ProgressPanel currStep={currPage}/>
 
 
       <div id="page-step">

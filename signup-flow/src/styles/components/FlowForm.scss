@@ -1,7 +1,11 @@
+@use 'src/styles/utils/variables';
 
 #flow-form{
   display: flex;
   flex-direction: row;
+
+  background-color: variables.$white;
+  box-shadow: 1px 1px 4px 1px #0000001a;
 }
 
 #buttons {
