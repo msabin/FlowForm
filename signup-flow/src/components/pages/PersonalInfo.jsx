@@ -1,4 +1,4 @@
-import '../../stylings/PersonalInfo.scss';
+import '../../styles/components/PersonalInfo.scss';
 
 export function PersonalInfo() {
 

@@ -4,7 +4,7 @@ import { PersonalInfo } from "./pages/PersonalInfo"
 import { SelectPlan } from "./pages/SelectPlan"
 import { useState } from "react"
 import { ThankYou } from "./pages/ThankYou";
-import '../stylings/FlowForm.scss';
+import '../styles/components/FlowForm.scss';
 
 const pages = [
   <PersonalInfo/>,

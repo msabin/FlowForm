@@ -1,4 +1,3 @@
-import './App.scss'
 import { FlowForm } from './components/FlowForm'
 
 function App() {
