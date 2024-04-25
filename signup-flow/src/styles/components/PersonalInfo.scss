@@ -11,6 +11,6 @@ h2 {
   display: block;
 }
 
-// input:invalid {
-//   border-color: red;
-// }
+input.not-filled {
+  border-color: red;
+}
