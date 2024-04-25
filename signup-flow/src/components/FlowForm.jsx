@@ -18,34 +18,24 @@ const pages = [
 
 export function FlowForm() {
   const [currPage, setCurrPage] = useState(0);
+  const [userData, setUserData] = useState({});
+
+  const handleUpdateUserData = (newUserData) => {
+    setUserData({ ...userData, ...newUserData });
+    setCurrPage(currPage+1);
+    console.log(userData);
+  }
 
   return (
     <div id="flow-form">
       <div>Progress Panel</div>
 
 
-      <div id="page-step">
+      {/* <div id="page-step">
         { pages[currPage] }
+      </div> */}
 
-        <div id="buttons">
-          <div id="go-back" className="left flex">
-            {currPage === 0 ? null :
-              <button onClick={() => setCurrPage(currPage-1)}>
-                Go Back
-              </button>
-            }
-          </div>
-          
-
-          <div id="next-step" className="right flex">
-            {currPage === pages.length-1 ? null :
-              <button onClick={() => setCurrPage(currPage+1)}>
-                Next Step
-              </button>
-            }
-          </div>
-        </div>
-      </div>
+      <PersonalInfo onUpdateUserData={handleUpdateUserData}/>
 
     </div>
   )
