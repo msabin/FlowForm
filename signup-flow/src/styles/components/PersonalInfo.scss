@@ -5,11 +5,13 @@ h2 {
 
 .form-input {
   margin: 15px 0;
+
+  label, input {
+    display: block;
+  }
 }
 
-.form-input label, input {
-  display: block;
-}
+
 
 input.not-filled {
   border-color: red;

@@ -1,53 +1,49 @@
-import '../../styles/components/selectplan.scss';
-import arcadeSVG from '/src/assets/images/icon-arcade.svg';
-import advancedSVG from '/src/assets/images/icon-advanced.svg';
-import proSVG from '/src/assets/images/icon-pro.svg';
+import "../../styles/components/selectplan.scss";
+import { planOptions } from "../../utils/constants";
 
-export function SelectPlan({ onGoBack, onUpdateUserData }) {
+export function SelectPlan({ userData, onGoBack, onNextStep, onUpdateUserData }) {
 
-  return(
+  const handleToggle = (e) => {
+    let pressed = e.target.getAttribute("aria-pressed") === "true";
+    e.target.setAttribute("aria-pressed", !pressed);
+    onUpdateUserData({monthly: !userData.monthly})
+  };
+
+  return (
     <div>
       <h2>Select Your Plan</h2>
-      
-        
+
       <p>You have the option of monthly or yearly billing.</p>
 
-      <div id='plans'>
-        <div className="plan-option">
-          <img src={arcadeSVG}/>
-          <h3>Arcade</h3>
-          $9/mo
-        </div>
-        
-        <div className="plan-option">
-          <img src={advancedSVG}/>
-          <h3>Advanced</h3>
-          $12/mo
-        </div>
-
-        
-        <div className="plan-option">
-          <img src={proSVG}/>
-          <h3>Pro</h3>
-          $15/mo
-        </div>
+      <div id="plans">
+        {planOptions.map((plan, i) => 
+          <label className="plan-option" key={i}>
+            <input 
+              type="radio" 
+              name="plan-option" 
+              onClick={()=>onUpdateUserData({plan: i})}
+              defaultChecked={userData.plan === i}
+            />
+            <img src={plan.picture} />
+            <h3>{plan.name}</h3>${plan.price}/mo
+          </label>
+        )}
       </div>
 
-      <div>Monthly Yearly </div>
+      <div>
+        Monthly
+        <button
+          type="button"
+          className="toggle"
+          aria-pressed={userData.monthly}
+          onClick={handleToggle}
+        />
+        Yearly
+      </div>
 
-       
+      <button onClick={() => onGoBack()}>Go Back</button>
 
-      <button
-        onClick={()=>onGoBack()}
-      >
-        Go Back
-      </button>
-
-      <button 
-        onClick={()=>onUpdateUserData({})}
-      >
-        Next Step
-      </button>
+      <button onClick={() => onNextStep({})}>Next Step</button>
     </div>
-  )
-};
+  );
+}

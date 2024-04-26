@@ -9,36 +9,53 @@ import { ProgressPanel } from "./ProgressPanel";
 
 
 
-
-
 export function FlowForm() {
   const [currPage, setCurrPage] = useState(0);
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState(
+    {
+      name: "",
+      email: "",
+      phone: "",
+      plan: 0,
+      monthly: true
+    }
+  );
 
   
+  const handleUpdateUserData = (newUserData) => {
+    setUserData({ ...userData, ...newUserData });
+  }
+
   const handleGoBack = () => {
     setCurrPage(currPage-1);
   }
-  const handleUpdateUserData = (newUserData) => {
-    setUserData({ ...userData, ...newUserData });
+  const handleNextStep = (newUserData) => {
+    handleUpdateUserData(newUserData)
     setCurrPage(currPage+1);
   }
 
   const pages = [
     <PersonalInfo 
+      userData={userData}
       onGoBack={handleGoBack}
-      onUpdateUserData={handleUpdateUserData} 
+      onNextStep={handleNextStep}
     />,
     <SelectPlan
+      userData={userData}
       onGoBack={handleGoBack}
+      onNextStep={handleNextStep}
       onUpdateUserData={handleUpdateUserData} 
     />,
     <AddOns
+      userData={userData}
       onGoBack={handleGoBack}
+      onNextStep={handleNextStep}
       onUpdateUserData={handleUpdateUserData} 
     />,
     <Finishing
+      userData={userData}
       onGoBack={handleGoBack}
+      onNextStep={handleNextStep}
       onUpdateUserData={handleUpdateUserData} 
     />,
     <ThankYou/>

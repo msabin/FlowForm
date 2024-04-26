@@ -1,3 +1,6 @@
+@use 'src/styles/utils/variables';
+@use 'src/styles/components/toggle';
+
 #plans {
   display: flex;
 }
@@ -9,3 +12,21 @@
   padding: .5rem;
   margin: .5rem;
 }
+
+label.plan-option {
+  > input{
+    visibility: hidden;
+    position: absolute;
+  }
+
+  &:has(input:checked){
+    background-color: variables.$magnolia;
+    border-color: variables.$purplish-blue;
+  }
+
+  &:hover {
+    border-color: variables.$purplish-blue;
+  }
+}
+
+
