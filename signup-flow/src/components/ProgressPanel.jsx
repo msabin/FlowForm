@@ -1,17 +1,27 @@
-import '../styles/components/progresspanel.scss';
+import "../styles/components/progresspanel.scss";
 
-export function ProgressPanel( {currStep} ) {
+const stepNames = ["Your Info", "Select Plans", "Add Ons", "Summary"];
 
-  return(
-    <div id='progress-panel'>
-      <div className="step">
-        <div className="step-num">1</div>
-        <div>
-          <div>Step 1</div>
-          <div>Your Info</div>
+export function ProgressPanel({ currStep }) {
+
+  return (
+    <div id="progress-panel">
+      {stepNames.map((stepName, i) => (
+        <div className="step" key={i}>
+          <div
+            className={`step-num 
+              ${currStep === i ? "curr-step" : ""}
+            `}
+          >
+            {i + 1}
+          </div>
+
+          <div>
+            <div className="step-label">Step {i + 1}</div>
+            <div>{stepName}</div>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
-  )
-
+  );
 }

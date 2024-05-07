@@ -1,4 +1,4 @@
-import "../../styles/components/PersonalInfo.scss";
+import "../../styles/components/personalinfo.scss";
 import { useState } from "react";
 
 export function PersonalInfo({ userData, onNextStep }) {
@@ -15,11 +15,11 @@ export function PersonalInfo({ userData, onNextStep }) {
   };
 
   return (
-    <div id="personal-info">
-      <h2>Personal Info</h2>
-      <p>Please provide your name, email address, and phone number.</p>
+    <form onSubmit={handleSubmit} className="page-container">
+      <div className="content-container">
+        <h2>Personal Info</h2>
+        <p>Please provide your name, email address, and phone number.</p>
 
-      <form onSubmit={handleSubmit}>
         <div className="form-input">
           <label htmlFor="name">Name</label>
           <input
@@ -64,9 +64,11 @@ export function PersonalInfo({ userData, onNextStep }) {
             //required
           />
         </div>
+      </div>
 
-        <input type="submit" value="Next Step" />
-      </form>
-    </div>
+      <div className="button-container-right">
+        <input className="forward-button" type="submit" value="Next Step" />
+      </div>
+    </form>
   );
 }

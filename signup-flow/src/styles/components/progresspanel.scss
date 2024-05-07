@@ -1,14 +1,41 @@
+@use 'src/styles/base/typography';
+@use 'src/styles/utils/variables';
+
 
 #progress-panel {
-  background-image: url('/src/assets/images/bg-sidebar-desktop.svg'
-  );
+  background-image: url("/src/assets/images/bg-sidebar-desktop.svg");
+  background-size: contain;
+  padding: 25px;
+  min-width: 274px;
+  min-height: 568px;
+  color: white;
+  text-transform: uppercase;
+
+
+  .step {
+    display: flex;
+  
+    .step-num {
+      border: solid;
+      border-radius: 50%;
+      margin-right: 10px;
+
+      width: typography.$font-size*2;
+      height: typography.$font-size*2;
+
+      text-align: center;
+    }
+  
+    .curr-step {
+      background-color: white;
+      color: black;
+    }
+
+    .step-label {
+      font-weight: typography.$font-weight-light;
+      color: variables.$pastel-blue;
+    }
+  }
 }
 
-.step {
-  display: flex;
-}
 
-.step-num {
-  border: solid;
-  border-radius: 100%;
-}

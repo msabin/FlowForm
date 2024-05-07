@@ -4,7 +4,7 @@ import { PersonalInfo } from "./pages/PersonalInfo"
 import { SelectPlan } from "./pages/SelectPlan"
 import { useState } from "react"
 import { ThankYou } from "./pages/ThankYou";
-import '../styles/components/FlowForm.scss';
+import '../styles/components/flowform.scss';
 import { ProgressPanel } from "./ProgressPanel";
 
 
@@ -55,8 +55,7 @@ export function FlowForm() {
     <Finishing
       userData={userData}
       onGoBack={handleGoBack}
-      onNextStep={handleNextStep}
-      onUpdateUserData={handleUpdateUserData} 
+      onConfirm={""}
     />,
     <ThankYou/>
   ]

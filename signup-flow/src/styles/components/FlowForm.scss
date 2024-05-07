@@ -1,26 +1,70 @@
 @use 'src/styles/utils/variables';
+@use 'src/styles/components/page-layout';
 
 #flow-form{
   display: flex;
   flex-direction: row;
 
+  padding:20px;
+  width: variables.$form-width;
+
   background-color: variables.$white;
   box-shadow: 1px 1px 4px 1px #0000001a;
 }
 
-#buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
 
-.flex {
-  display: flex;
-}
 
-.left {
-  justify-content: left;
-}
 
-.right {
-  justify-content: right;
-}
+
+// Grid approach
+
+// .button-container {
+//   display: grid;
+//   grid-template-columns: auto 1fr auto;
+//   grid-template-areas: "back fill forward";
+  
+//   .back-button {
+//     grid-area: back;
+//     width: fit-content;
+//     height: fit-content;
+//   }
+  
+//   .forward-button {
+//     grid-area: forward;
+//     width: fit-content;
+//     height: fit-content;
+//   }
+// }
+
+
+
+
+
+// Flex approach
+
+// .button-container {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+
+
+
+// Position approach
+
+// .button-container {
+//   position: relative;
+
+
+//   .back-button {
+//     position: absolute;
+//     left: 0px;
+//     bottom: 0px;
+
+//   }
+//   .forward-button {
+//     position: absolute;
+//     right: 0px;
+//     bottom: 0px;
+//   }
+// }

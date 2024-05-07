@@ -1,3 +1,6 @@
+// @use 'src/styles/utils/variables';
+@use "sass:math";
+
 
 // COLORS
 
@@ -14,3 +17,11 @@ $light-gray: hsl(229, 24%, 87%);
 $magnolia: hsl(217, 100%, 97%);
 $alabaster: hsl(231, 100%, 99%);
 $white: hsl(0, 0%, 100%);
+
+
+
+// DIMENSIONS
+
+// sidebar image is 568-by-274 in proportion
+$sidebar-width: 274px;
+$form-width: 3 * $sidebar-width;
