@@ -20,8 +20,8 @@
       border-radius: 50%;
       margin-right: 10px;
 
-      width: typography.$font-size*2;
-      height: typography.$font-size*2;
+      width: 2rem;
+      height: 2rem;
 
       text-align: center;
     }
@@ -32,7 +32,7 @@
     }
 
     .step-label {
-      font-weight: typography.$font-weight-light;
+      font-weight: variables.$regular;
       color: variables.$pastel-blue;
     }
   }

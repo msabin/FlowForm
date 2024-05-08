@@ -1,10 +1,10 @@
 @use 'src/styles/utils/variables';
-@use 'src/styles/components/page-layout';
+@use 'src/styles/layouts/page-layout';
 
 #flow-form{
   display: flex;
   flex-direction: row;
-
+  gap: 20px;
   padding:20px;
   width: variables.$form-width;
 

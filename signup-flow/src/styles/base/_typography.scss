@@ -1,17 +1,37 @@
+@use '../utils/variables';
+
+// Google Fonts for Ubuntu
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-$font-family: "Ubuntu", sans-serif;
-$font-weight-light: 400;
-$font-weight-regular: 500;
-$font-weight-bold: 700;
-$font-size: 16px;
-
-#root {
-  font-family: $font-family;
-  font-weight: $font-weight-regular;
-  font-size: $font-size;
+// Backup local fonts
+@font-face {
+  font-family: "Ubuntu";
+  src: url('/src/assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: 400;
 }
 
-p {
-  font-weight: $font-weight-light;
+@font-face {
+  font-family: "Ubuntu";
+  src: url('/src/assets/fonts/Ubuntu-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url('/src/assets/fonts/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+
+
+* {
+  font-family: "Ubuntu", sans-serif;
+  color: variables.$marine-blue;
+  font-weight: variables.$regular;
+}
+
+
+h2 {
+  font-size: 2rem;
+  font-weight: variables.$bold;
 }
