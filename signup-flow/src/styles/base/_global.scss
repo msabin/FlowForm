@@ -1,0 +1,20 @@
+@use '../abstracts/variables';
+
+* {
+  border-radius: 10px;
+}
+
+h1 {
+  margin-bottom: .7rem;
+  font-size: 1.75rem;
+  color: variables.$marine-blue;
+}
+
+p {
+  font-weight: variables.$regular;
+  color: variables.$cool-gray;
+}
+
+header {
+  margin-bottom: 1.25rem;
+}

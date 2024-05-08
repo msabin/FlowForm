@@ -1,70 +1,56 @@
-@use 'src/styles/utils/variables';
-@use 'src/styles/layouts/page-layout';
+@use '../abstracts/variables';
 
-#flow-form{
+#flow-form {
+  width: 90%;
+  background-color: white;
+
+  border-radius: 10px;
+  padding: 25px;
+
+  position: absolute;
+  top: 5.5rem;
+}
+
+.button-container {
+  position: fixed;
+  width: 100%;
+
+  bottom: 0;
+  left: 0;
+
+  background-color: white;
+  border-radius: 0;
+
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-  padding:20px;
-  width: variables.$form-width;
 
-  background-color: variables.$white;
-  box-shadow: 1px 1px 4px 1px #0000001a;
+  button {
+    padding: .75em 1em;
+    margin: 20px 20px 20px auto;
+    border-style: none;
+
+    background-color: variables.$marine-blue;
+    color: white;
+  }
 }
 
 
+// LARGER DISPLAYS
 
+@media screen and (min-width: 40rem) {
+  #flow-form {
+    // Resposition to center
+    position: relative;
+    top: 0;
+    left: 0;
 
+    width: 900px;
 
-// Grid approach
+    display: flex;
+    justify-content: space-between;
 
-// .button-container {
-//   display: grid;
-//   grid-template-columns: auto 1fr auto;
-//   grid-template-areas: "back fill forward";
-  
-//   .back-button {
-//     grid-area: back;
-//     width: fit-content;
-//     height: fit-content;
-//   }
-  
-//   .forward-button {
-//     grid-area: forward;
-//     width: fit-content;
-//     height: fit-content;
-//   }
-// }
+    .button-container {
+      position: relative;
 
-
-
-
-
-// Flex approach
-
-// .button-container {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-
-
-
-// Position approach
-
-// .button-container {
-//   position: relative;
-
-
-//   .back-button {
-//     position: absolute;
-//     left: 0px;
-//     bottom: 0px;
-
-//   }
-//   .forward-button {
-//     position: absolute;
-//     right: 0px;
-//     bottom: 0px;
-//   }
-// }
+    }
+  }
+}

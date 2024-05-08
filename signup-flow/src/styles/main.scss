@@ -1,7 +1,4 @@
-@use 'src/styles/base/resets';
-
-// layouts
-@use 'src/styles/layouts/global';
-
-// typography
-@use 'src/styles/base/typography';
+@use './base/resets';
+@use './base/layout';
+@use './base/global';
+@use './base/typography';

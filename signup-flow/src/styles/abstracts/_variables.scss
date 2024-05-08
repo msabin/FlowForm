@@ -1,6 +1,4 @@
-// @use 'src/styles/utils/variables';
-@use "sass:math";
-
+@use '../base/typography';
 
 // COLORS
 
@@ -11,7 +9,8 @@ $pastel-blue: hsl(228, 100%, 84%);
 $light-blue: hsl(206, 94%, 87%);
 $strawberry-red: hsl(354, 84%, 57%);
 
-// Neutral
+
+// Secondary
 $cool-gray: hsl(231, 11%, 63%);
 $light-gray: hsl(229, 24%, 87%);
 $magnolia: hsl(217, 100%, 97%);
@@ -19,16 +18,7 @@ $alabaster: hsl(231, 100%, 99%);
 $white: hsl(0, 0%, 100%);
 
 
-
-// DIMENSIONS
-
-// sidebar image is 568-by-274 in proportion
-$sidebar-width: 274px;
-$form-width: 900px;
-
-
 // TYPOGRAPHY
-$font-family: "Ubuntu", sans-serif;
-$regular: 400;
-$medium: 500;
-$bold: 700;
+$bold: typography.$bold;
+$medium: typography.$medium;
+$regular: typography.$regular;

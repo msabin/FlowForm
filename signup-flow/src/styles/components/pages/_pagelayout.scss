@@ -1,0 +1,21 @@
+
+
+@media screen and (min-width: 40rem) {
+  .page-container {
+    padding: 2rem 60px;
+  
+    height: auto;
+
+    .content-container {
+      height: auto;
+
+      form {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+
+      }
+    }
+  
+  }
+}
