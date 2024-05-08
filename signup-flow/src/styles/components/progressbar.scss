@@ -48,7 +48,7 @@
 
 // LARGER DISPLAYS
 
-@media screen and (min-width: 40rem) {
+@media screen and (min-width: variables.$large-breakpoint) {
   #progress-bar {
     background-image: url("../../assets/images/bg-sidebar-desktop.svg");
 
