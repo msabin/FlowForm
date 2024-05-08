@@ -1,8 +1,18 @@
 import "../../styles/components/pages/personalinfo.scss";
 
-export function PersonalInfo({ userData, updateUserData, goBack, nextStep }) {
+export function PersonalInfo({
+  userData,
+  onUpdateUserData,
+  onGoBack,
+  onNextStep,
+}) {
+  const handleSubmit = () => {
+    onUpdateUserData();
+    onNextStep();
+  };
+
   return (
-    <form className="page-container">
+    <form className="page-container" onSubmit={handleSubmit}>
       <div className="content-container">
         <header>
           <h1>Personal Info</h1>

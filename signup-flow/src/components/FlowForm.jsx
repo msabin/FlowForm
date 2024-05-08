@@ -7,22 +7,37 @@ import "../styles/components/flowform.scss";
 
 export function FlowForm() {
   const [currPage, setCurrPage] = useState(0);
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({'hello': 1});
 
-  function handleUpdateUserData() {}
+  function handleUpdateUserData(newData) {
+    setUserData({...userData, ...newData});
+  }
 
-  function handleGoBack() {}
+  const handleGoBack = () => {
+    setCurrPage(currPage-1);
+  }
 
-  function handleNextStep() {}
+  const handleNextStep = () => {
+    console.log(currPage);
+    setCurrPage(currPage+1);
+  }
 
-  const props = {
-    userData,
-    handleUpdateUserData,
-    handleGoBack,
-    handleNextStep,
-  };
-
-  const pages = [<PersonalInfo />, <SelectPlan />];
+  // Array of all our pages that FlowForm routes to
+  const pages = [
+    <PersonalInfo 
+      userData = {userData}
+      onUpdateUserData = {handleUpdateUserData}
+      onGoBack = {handleGoBack}
+      onNextStep = {handleNextStep}
+    />
+    , 
+    <SelectPlan 
+      userData = {userData}
+      onUpdateUserData = {handleUpdateUserData}
+      onGoBack = {handleGoBack}
+      onNextStep = {handleNextStep}
+    />
+  ];
 
   return (
     <div id="flow-form">
