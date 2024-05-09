@@ -31,6 +31,12 @@
     margin: 20px;
     border-style: none;
 
+    &.go-back {
+      background-color: transparent;
+      color: variables.$cool-gray;
+      font-weight: variables.$medium;
+    }
+
     &.next-step {
       background-color: variables.$marine-blue;
       color: white;

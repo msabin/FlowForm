@@ -1,13 +1,13 @@
 import "../../styles/components/pages/personalinfo.scss";
 
-export function PersonalInfo({
-  userData,
-  onUpdateUserData,
-  onGoBack,
-  onNextStep,
-}) {
-  const handleSubmit = () => {
-    onUpdateUserData();
+export function PersonalInfo({ userData, onUpdateUserData, onNextStep }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = new FormData(e.target);
+    const newData = Object.fromEntries(form.entries());
+
+    onUpdateUserData(newData);
     onNextStep();
   };
 
@@ -27,6 +27,8 @@ export function PersonalInfo({
             id="name"
             name="name"
             placeholder="e.g. Stephen Hawking"
+            defaultValue={userData.name}
+            required
           ></input>
         </div>
 
@@ -36,12 +38,18 @@ export function PersonalInfo({
             id="email"
             name="email"
             placeholder="e.g. stephenking@lorem.com"
+            defaultValue={userData.email}
           ></input>
         </div>
 
         <div className="form-input">
           <label htmlFor="tel">Phone Number</label>
-          <input id="tel" name="tel" placeholder="e.g. +1 234 567 890"></input>
+          <input
+            id="tel"
+            name="tel"
+            placeholder="e.g. +1 234 567 890"
+            defaultValue={userData.tel}
+          ></input>
         </div>
       </div>
 

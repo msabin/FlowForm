@@ -1,21 +1,43 @@
 import "../../styles/components/pages/selectplan.scss";
+import arcadeSVG from "../../assets/images/icon-arcade.svg";
 
-export function SelectPlan() {
+export function SelectPlan({
+  userData,
+  onUpdateUserData,
+  onGoBack,
+  onNextStep,
+}) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    onNextStep();
+  };
+
   return (
-    <form className="page-container">
+    <form className="page-container" onSubmit={handleSubmit}>
       <div className="content-container">
         <header>
-          <h1>Select Plan</h1>
+          <h1>Select your plan</h1>
           <p className="page-desc">
-            Words
+            You have the option of monthly or yearly billing.
           </p>
         </header>
 
-        
+        <div className="cards-container">
+          <label className="plan-card">
+            <input type="radio" className="plan-radio" />
+            <img src={arcadeSVG} />
+
+            <span className="plan-container">
+              <span className="plan-title">Arcade</span>
+              <span className="plan-price">$9/mo</span>
+            </span>
+          </label>
+        </div>
       </div>
-      
+
       <div className="button-container">
-        <button className="go-back" type="submit">
+        <button className="go-back" onClick={onGoBack}>
           Go Back
         </button>
 
