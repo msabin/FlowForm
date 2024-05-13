@@ -1,5 +1,6 @@
 import "../../styles/components/pages/selectplan.scss";
-import arcadeSVG from "../../assets/images/icon-arcade.svg";
+import { plans } from "../../utils/constants.js";
+// import arcadeSVG from "../../assets/images/icon-arcade.svg";
 
 export function SelectPlan({
   userData,
@@ -23,18 +24,27 @@ export function SelectPlan({
           </p>
         </header>
 
-        <div className="cards-container">
-          <label className="plan-card">
-            <input type="radio" className="plan-radio" />
-            <img src={arcadeSVG} />
+        <div className="plans-container">
+          {plans.map((plan) => (
+            <label className="plan-card">
+              <input type="radio" name="plan-radio" className="visually-hidden" />
+              <img src={plan.svg} />
 
-            <span className="plan-container">
-              <span className="plan-title">Arcade</span>
-              <span className="plan-price">$9/mo</span>
-            </span>
-          </label>
+              <span className="plan-container">
+                <span className="plan-title">{plan.type}</span>
+                <span className="plan-price">${plan.monthlyPrice}/mo</span>
+              </span>
+            </label>
+          ))}
+
+        <div className="toggle-container">
+          <span>Monthly</span>
+          <button className="toggle"/>
+          <span>Yearly</span>
         </div>
+        
       </div>
+    </div>
 
       <div className="button-container">
         <button className="go-back" onClick={onGoBack}>
