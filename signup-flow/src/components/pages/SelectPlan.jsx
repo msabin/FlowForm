@@ -24,7 +24,7 @@ export function SelectPlan({
           </p>
         </header>
 
-        <div className="plans-container">
+        <div className="cards-container">
           {plans.map((plan) => (
             <label className="plan-card">
               <input type="radio" name="plan-radio" className="visually-hidden" />
@@ -36,15 +36,14 @@ export function SelectPlan({
               </span>
             </label>
           ))}
-
-        <div className="toggle-container">
-          <span>Monthly</span>
-          <button className="toggle"/>
-          <span>Yearly</span>
         </div>
-        
       </div>
-    </div>
+
+      <div className="toggle-container">
+        <span>Monthly</span>
+        <button className="toggle"/>
+        <span>Yearly</span>
+      </div>
 
       <div className="button-container">
         <button className="go-back" onClick={onGoBack}>

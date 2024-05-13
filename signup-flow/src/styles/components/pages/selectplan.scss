@@ -1,17 +1,19 @@
 @use '../../abstracts/variables';
 
-.plans-container {
+.cards-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 
   label.plan-card {
-    border: 2px solid variables.$cool-gray;
+    border: 2px solid variables.$light-gray;
+    padding: 18px;
 
     display: flex;
     align-items: center;
+    gap: 18px;
 
-    &:focus-within {
+    &:hover {
       border-color: variables.$purplish-blue;
     }
 
@@ -20,9 +22,9 @@
       background-color: variables.$magnolia;
     }
 
-    img {
-      margin: 18px;
-    }
+    // img {
+    //   margin: 18px;
+    // }
 
     .plan-title {
       color: variables.$marine-blue;
@@ -38,17 +40,74 @@
       flex-direction: column;
     }
   }
+}
 
-  .toggle-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
 
-    margin: 1rem 0;
-    background-color: variables.$magnolia;
-    padding: .75em 0;
+  margin: 1rem 0;
+  background-color: variables.$magnolia;
+  padding: .75em 0;
 
-    font-weight: variables.$medium;
-    color: variables.$cool-gray;
+  font-weight: variables.$medium;
+  color: variables.$cool-gray;
+
+  button.toggle {
+    $slider-size: 12px;
+
+    $container-pad: 5px;
+    $container-width: 3.5 * $slider-size;
+    $container-height: $slider-size + 2*$container-pad;
+
+    width: $container-width;
+    height: $container-height;
+    border-radius: $container-height/2;
+
+    position: relative;
+
+    background-color: variables.$marine-blue;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 100%;
+
+      margin: $container-pad;
+
+      display: inline-block;
+      content: "";
+      width: $slider-size;
+      height: $slider-size;
+      border-radius: 50%;
+
+      background-color: white;
+
+      transition-duration: 1s;
+      transition-property: left;
+    }
+
+    &[aria-pressed="false"]::before {
+      // Should move to the right of the container, account for 
+      // slider size and padding.
+      left: $container-width - 2*$container-pad - $slider-size;
+    }
+  }
+}
+
+
+@media screen and (min-width: variables.$large-breakpoint) {
+  .cards-container {
+    flex-direction: row;
+
+    label.plan-card {
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
+    }
   }
 }
