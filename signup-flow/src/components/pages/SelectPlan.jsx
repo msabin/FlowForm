@@ -14,6 +14,12 @@ export function SelectPlan({
     onNextStep();
   };
 
+  const handleToggle = (e) => {
+    e.preventDefault();
+    const pressed = e.target.getAttribute("aria-pressed") === "true";
+    e.target.setAttribute("aria-pressed", !pressed);
+  };
+
   return (
     <form className="page-container" onSubmit={handleSubmit}>
       <div className="content-container">
@@ -25,9 +31,13 @@ export function SelectPlan({
         </header>
 
         <div className="cards-container">
-          {plans.map((plan) => (
-            <label className="plan-card">
-              <input type="radio" name="plan-radio" className="visually-hidden" />
+          {plans.map((plan, i) => (
+            <label className="plan-card" key={i}>
+              <input
+                type="radio"
+                name="plan-radio"
+                className="visually-hidden"
+              />
               <img src={plan.svg} />
 
               <span className="plan-container">
@@ -37,12 +47,16 @@ export function SelectPlan({
             </label>
           ))}
         </div>
-      </div>
 
-      <div className="toggle-container">
-        <span>Monthly</span>
-        <button className="toggle"/>
-        <span>Yearly</span>
+        <div className="toggle-container">
+          <span>Monthly</span>
+          <button
+            className="toggle"
+            onClick={handleToggle}
+            aria-pressed="true"
+          />
+          <span>Yearly</span>
+        </div>
       </div>
 
       <div className="button-container">
