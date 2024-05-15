@@ -18,6 +18,8 @@ export function SelectPlan({
     e.preventDefault();
     const pressed = e.target.getAttribute("aria-pressed") === "true";
     e.target.setAttribute("aria-pressed", !pressed);
+
+    onUpdateUserData({ monthly: !userData.monthly });
   };
 
   return (
@@ -37,6 +39,8 @@ export function SelectPlan({
                 type="radio"
                 name="plan-radio"
                 className="visually-hidden"
+                onClick={() => onUpdateUserData({ plan: plan })}
+                defaultChecked={userData.plan === plan}
               />
               <img src={plan.svg} />
 
@@ -53,7 +57,8 @@ export function SelectPlan({
           <button
             className="toggle"
             onClick={handleToggle}
-            aria-pressed="true"
+            aria-pressed={userData.monthly}
+            aria-label="monthly"
           />
           <span>Yearly</span>
         </div>
