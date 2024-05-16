@@ -1,5 +1,5 @@
 import "../../styles/components/pages/selectplan.scss";
-import { plans } from "../../utils/constants.js";
+import { PLANS } from "../../utils/constants.js";
 // import arcadeSVG from "../../assets/images/icon-arcade.svg";
 
 export function SelectPlan({
@@ -33,7 +33,7 @@ export function SelectPlan({
         </header>
 
         <div className="cards-container">
-          {plans.map((plan, i) => (
+          {PLANS.map((plan, i) => (
             <label className="plan-card" key={i}>
               <input
                 type="radio"

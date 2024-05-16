@@ -1,0 +1,48 @@
+@use '../../abstracts/variables';
+
+.add-ons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding-bottom: 18px;
+
+  label.add-on {
+    border: 2px solid variables.$light-gray;
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    &:hover {
+      border-color: variables.$purplish-blue;
+    }
+
+    &:has(:checked) {
+      border-color: variables.$purplish-blue;
+      background-color: variables.$magnolia;
+    }
+
+
+    .add-on-type {
+      display: flex;
+      flex-direction: column;
+
+      .add-on-title {
+        color: variables.$marine-blue;
+        font-weight: variables.$medium;
+      }
+
+      .add-on-descr {
+        color: variables.$cool-gray;
+      }
+    }
+
+    .add-on-price {
+      color: variables.$purplish-blue;
+      margin-left: auto;
+      min-width: max-content;
+    }
+  }
+}
