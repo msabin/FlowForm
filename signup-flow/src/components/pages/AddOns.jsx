@@ -1,13 +1,9 @@
 import "../../styles/components/pages/addons.scss";
 import { ADD_ONS } from "../../utils/constants.js";
 
+export function AddOns({ userData, onUpdateUserData, onGoBack, onNextStep }) {
+  const currAddOns = userData.addOns;
 
-export function AddOns({
-  userData,
-  onUpdateUserData,
-  onGoBack,
-  onNextStep,
-}) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -29,8 +25,15 @@ export function AddOns({
             <label className="add-on" key={i}>
               <input
                 type="checkbox"
-                onClick={() => onUpdateUserData({ addOns: addOn })}
-                defaultChecked={userData.addOn === addOn}
+                defaultChecked={currAddOns.has(addOn)}
+                onClick={(e) => {
+                  if (e.target.checked) {
+                    onUpdateUserData({ addOns: currAddOns.add(addOn) });
+                  } else {
+                    currAddOns.delete(addOn)
+                    onUpdateUserData({ addOns: currAddOns });
+                  }
+                }}
               />
 
               <span className="add-on-type">

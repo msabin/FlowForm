@@ -5,6 +5,7 @@ import { SelectPlan } from "./pages/SelectPlan";
 import { AddOns } from "./pages/AddOns";
 
 import { PLANS } from "../utils/constants.js";
+import { ADD_ONS } from "../utils/constants.js";
 
 import "../styles/components/flowform.scss";
 
