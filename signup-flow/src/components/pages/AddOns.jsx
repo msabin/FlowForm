@@ -1,5 +1,5 @@
 import "../../styles/components/pages/addons.scss";
-import { ADD_ONS } from "../../utils/constants.js";
+import { ADD_ONS, MONTHS_FREE } from "../../utils/constants.js";
 
 export function AddOns({ userData, onUpdateUserData, onGoBack, onNextStep }) {
   const currAddOns = userData.addOns;
@@ -30,7 +30,7 @@ export function AddOns({ userData, onUpdateUserData, onGoBack, onNextStep }) {
                   if (e.target.checked) {
                     onUpdateUserData({ addOns: currAddOns.add(addOn) });
                   } else {
-                    currAddOns.delete(addOn)
+                    currAddOns.delete(addOn);
                     onUpdateUserData({ addOns: currAddOns });
                   }
                 }}
@@ -41,7 +41,11 @@ export function AddOns({ userData, onUpdateUserData, onGoBack, onNextStep }) {
                 <span className="add-on-descr">{addOn.descr}</span>
               </span>
 
-              <span className="add-on-price">+${addOn.monthlyPrice}/mo</span>
+              <span className="add-on-price">
+                {userData.monthly
+                  ? `+$${addOn.monthlyPrice}/mo`
+                  : `+$${addOn.monthlyPrice * (12 - MONTHS_FREE)}/yr`}
+              </span>
             </label>
           ))}
         </div>

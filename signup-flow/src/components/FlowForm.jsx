@@ -58,7 +58,7 @@ export function FlowForm() {
 
   return (
     <div id="flow-form">
-      <ProgressBar></ProgressBar>
+      <ProgressBar page={currPage}/>
 
       {pages[currPage]}
     </div>

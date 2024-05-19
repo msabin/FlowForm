@@ -30,6 +30,13 @@
     // Center number in circ
     line-height: 2;
     text-align: center;
+    font-weight: variables.$medium;
+
+    &.curr-page {
+      color: variables.$marine-blue;
+      background-color: variables.$light-blue;
+      border: none;
+    }
   }
 
   .step {

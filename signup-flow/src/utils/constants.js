@@ -8,6 +8,9 @@ export const PLANS = [
   { type: "Pro", monthlyPrice: 15, svg: proSVG },
 ];
 
+// Months free when on the yearly plan
+export const MONTHS_FREE = 2;
+
 export const ADD_ONS = [
   {
     type: "Online service",

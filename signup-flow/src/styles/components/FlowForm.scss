@@ -2,7 +2,7 @@
 
 #flow-form {
   width: 90%;
-  max-width: 550px;
+  max-width: 600px;
   background-color: white;
 
   border-radius: 10px;
@@ -29,11 +29,16 @@
     padding: 0.75em 0;
     margin: 20px;
     border-style: none;
+    cursor: pointer;
 
     &.go-back {
       background-color: transparent;
       color: variables.$cool-gray;
       font-weight: variables.$medium;
+
+      &:hover {
+        color: variables.$marine-blue;
+      }
     }
 
     &.next-step {
@@ -41,6 +46,10 @@
       color: white;
       margin-left: auto;
       width: 7em;
+
+      &:hover {
+        background-color: variables.$purplish-blue;
+      }
     }
   }
 }
@@ -54,7 +63,7 @@
     top: 0;
     left: 0;
 
-    width: 900px;
+    width: 950px;
     max-width: 90%;
 
     display: flex;

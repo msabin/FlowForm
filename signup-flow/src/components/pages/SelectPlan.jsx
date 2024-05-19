@@ -1,5 +1,5 @@
 import "../../styles/components/pages/selectplan.scss";
-import { PLANS } from "../../utils/constants.js";
+import { PLANS, MONTHS_FREE } from "../../utils/constants.js";
 // import arcadeSVG from "../../assets/images/icon-arcade.svg";
 
 export function SelectPlan({
@@ -46,21 +46,40 @@ export function SelectPlan({
 
               <span className="plan-container">
                 <span className="plan-title">{plan.type}</span>
-                <span className="plan-price">${plan.monthlyPrice}/mo</span>
+                <span className="plan-price">
+                  { userData.monthly ? 
+                      `$${plan.monthlyPrice}/mo` :
+                      `$${plan.monthlyPrice * (12 - MONTHS_FREE)}/yr`
+                  }
+                </span>
+                { 
+                  !userData.monthly
+
+                  &&
+
+                  <span className="months-free">
+                    {MONTHS_FREE} months free
+                  </span>
+                }
               </span>
             </label>
           ))}
         </div>
 
         <div className="toggle-container">
-          <span>Monthly</span>
+          <span className={userData.monthly ? "selected": ""}>
+            Monthly
+          </span>
+
           <button
             className="toggle"
             onClick={handleToggle}
             aria-pressed={userData.monthly}
             aria-label="monthly"
           />
-          <span>Yearly</span>
+          <span className={!userData.monthly ? "selected": ""}>
+            Yearly
+          </span>
         </div>
       </div>
 
