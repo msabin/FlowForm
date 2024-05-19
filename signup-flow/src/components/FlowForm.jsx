@@ -3,6 +3,8 @@ import { ProgressBar } from "./ProgressBar";
 import { PersonalInfo } from "./pages/PersonalInfo";
 import { SelectPlan } from "./pages/SelectPlan";
 import { AddOns } from "./pages/AddOns";
+import { Finishing } from "./pages/Finishing";
+import { ThankYou } from "./pages/ThankYou.jsx";
 
 import { PLANS } from "../utils/constants.js";
 import { ADD_ONS } from "../utils/constants.js";
@@ -30,7 +32,6 @@ export function FlowForm() {
   };
 
   const handleNextStep = () => {
-    console.log(currPage);
     setCurrPage(currPage + 1);
   };
 
@@ -53,12 +54,19 @@ export function FlowForm() {
       onUpdateUserData={handleUpdateUserData}
       onGoBack={handleGoBack}
       onNextStep={handleNextStep}
-    />
+    />,
+    <Finishing
+      userData={userData}
+      onChangePlan={() => setCurrPage(1)}
+      onGoBack={handleGoBack}
+      onNextStep={handleNextStep}
+    />,
+    <ThankYou/>
   ];
 
   return (
     <div id="flow-form">
-      <ProgressBar page={currPage}/>
+      <ProgressBar page={Math.min(currPage, pages.length-2)}/>
 
       {pages[currPage]}
     </div>

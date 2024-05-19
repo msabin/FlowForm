@@ -6,7 +6,7 @@ export function ProgressBar({ page }) {
   return (
     <div id="progress-bar">
       {steps.map((descr, step) => (
-        <div className="step-container">
+        <div className="step-container" key={step}>
           <div className={`step-circ${page === step ? " curr-page" : ""}`}>
             {step + 1}
           </div>
