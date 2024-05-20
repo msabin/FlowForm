@@ -23,3 +23,9 @@
     // border-color: variables.$cool-gray;
   }
 }
+
+@media screen and (min-width: variables.$large-breakpoint) {
+  .form-input {
+    margin-bottom: 1.25rem;
+  }
+}

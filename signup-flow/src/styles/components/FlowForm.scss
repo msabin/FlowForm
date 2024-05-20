@@ -3,6 +3,9 @@
 #flow-form {
   width: 90%;
   max-width: 600px;
+  max-height: 70%;
+  overflow: scroll;
+  
   background-color: white;
 
   border-radius: 10px;
@@ -64,6 +67,7 @@
 
     width: 950px;
     max-width: 90%;
+    max-height: 100%;
 
     display: flex;
     justify-content: space-between;

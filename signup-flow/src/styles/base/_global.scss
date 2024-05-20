@@ -3,6 +3,11 @@
 * {
   border-radius: 10px;
   border-style: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px variables.$light-blue;
+    border: none;
+  }
 }
 
 h1 {
@@ -34,4 +39,10 @@ button:hover {
   position: absolute;
   width: 1px;
   white-space: nowrap;
+}
+
+@media screen and (min-width: variables.$large-breakpoint) {
+  header { 
+    margin-bottom: 2.25rem;
+  }
 }

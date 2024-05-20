@@ -70,7 +70,7 @@ $padding: 18px;
 }
 
 .total-container {
-  padding: 0 $padding;
+  padding: .5rem $padding 0;
   margin-bottom: 1rem;
 
   .total-per {
@@ -80,5 +80,12 @@ $padding: 18px;
   .total-price {
     color: variables.$purplish-blue;
     font-weight: variables.$medium;
+  }
+}
+
+
+@media screen and (min-width: variables.$large-breakpoint) {
+  .receipt-container .plan-container {
+    padding-bottom: 24px;
   }
 }

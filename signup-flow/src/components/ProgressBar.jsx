@@ -13,7 +13,7 @@ export function ProgressBar({ page }) {
 
           <div className="step">
             <div className="step-num">Step {step + 1}</div>
-            <div className="step-desc">Your Info</div>
+            <div className="step-desc">{descr}</div>
           </div>
         </div>
       ))}
