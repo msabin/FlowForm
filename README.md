@@ -1,7 +1,9 @@
 # FlowForm
 
+<p>
 <img src="./design/desktop-preview.jpg" width="350">
 <img src="./design/all-mobile.jpg" width="350">
+</p>
 
 FlowForm is multi-step user sign-up flow that is Accessible, responsive, and stateful.  
 
