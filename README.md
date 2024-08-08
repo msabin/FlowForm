@@ -11,7 +11,7 @@ FlowForm is multi-step user sign-up flow that is Accessible, responsive, and sta
 
 The input information will not be sent anywhere, this is a disembodied front-end design built from scratch to match JPEG screencaps of a design (see above) for [a challenge from Front End Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ).
 
-This form runs the gamut of standard text forms, radio buttons, checklists, and page routing for a React-build Single-Page App, built using semantic HTML for a screen-readable, keyboard-navigable experience.
+This form runs the gamut of standard text forms, radio buttons, checklists, and page routing for a React-built Single-Page App, built using semantic HTML for a screen-readable, keyboard-navigable experience.
 
 This project was built mobile-first using the React framework for JavaScript with Sass (SCSS) styling and a single composite state of all the pages, stored to be sent as a new-user payload to a backend if connected to one.
 
